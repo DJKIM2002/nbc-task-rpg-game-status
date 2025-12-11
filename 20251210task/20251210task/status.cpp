@@ -8,7 +8,6 @@ const int MP_POTION_COUNT_MAX = 5; // MP 포션 최대 보유량
 void setPotion(int count, int* p_HPPotion, int* p_MPPotion);
 
 int main() {
-	setlocale(LC_ALL,"");
 	// int형 배열 status를 선언하고 0으로 초기화
 	int status[4] = { 0, }; // HP, MP, 공격력, 방어력
 
@@ -39,9 +38,10 @@ int main() {
 		break;
 	}
 
+	// 3. 포션 지급 (기본 5개씩)
+	setPotion(5,&hpPotionCount,&mpPotionCount);
+
 	while (true) {
-		// 3. 포션 지급 (기본 5개씩)
-		setPotion(5, &hpPotionCount, &mpPotionCount);
 
 		// 4. <스탯 관리 시스템> 창 출력
 		cout << "=============================================\n";
@@ -103,11 +103,11 @@ void setPotion(int count, int* p_HPPotion, int* p_MPPotion) {
 	}
 
 	if (*p_HPPotion >= HP_POTION_COUNT_MAX) {
-		cout << "* 가지고 있는 HP 포션이 최대 보유량(" << HP_POTION_COUNT_MAX << "개)를 넘어서 더 이상 받을 수 없습니다.\n";
+		cout << "* 가지고 있는 HP 포션이 최대 보유량(" << HP_POTION_COUNT_MAX << "개)을 넘어서 더 이상 받을 수 없습니다.\n";
 		return;
 	}
 	else if (*p_MPPotion >= MP_POTION_COUNT_MAX) {
-		cout << "* 가지고 있는 MP 포션이 최대 보유량(" << MP_POTION_COUNT_MAX << "개)를 넘어서 더 이상 받을 수 없습니다.\n";
+		cout << "* 가지고 있는 MP 포션이 최대 보유량(" << MP_POTION_COUNT_MAX << "개)을 넘어서 더 이상 받을 수 없습니다.\n";
 		return;
 	}
 	else {
