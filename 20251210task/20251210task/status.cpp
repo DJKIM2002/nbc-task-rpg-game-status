@@ -38,6 +38,10 @@ int main() {
 			cout << "HP나 MP의 값이 너무 작습니다. 다시 입력해주세요.\n";
 			continue;
 		}
+		if(Status[0] > HPMax || Status[1] > MPMax) {
+			cout << "HP나 MP의 값이 너무 큽니다. 다시 입력해주세요.\n";
+			continue;
+		}
 		break;
 	}
 
